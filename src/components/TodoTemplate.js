@@ -7,7 +7,7 @@ const TodoTemplateBlock = styled.div`
   height: 768px;
 
   position: relative; //나중에 초록색 + 버튼을 TodoTemplate 내부의 최하단에 렌더링 해야 하는데 그때 필요한 속성
-  background: white; //배경색 흰색
+  background: blue; //배경색 흰색
   border-radius: 16px; //테두리 둥글게
   box-shadow: 0 0 8px rbga(0, 0, 0, 0.04); //그림자 투명도 설정
 

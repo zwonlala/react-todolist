@@ -1,6 +1,7 @@
 import React from "react";
 import styled, { css } from "styled-components";
 import { MdDone, MdDelete } from "react-icons/md"; //TodoItem에 사용할 아이콘 불러옴
+import { useTodoDispatch } from "./TodoContext";
 
 const CheckCircle = styled.div`
   width: 32px;
@@ -65,15 +66,30 @@ const TodoItemBlock = styled.div`
 `;
 
 function TodoItem({ id, done, text }) {
+  const dispatch = useTodoDispatch();
+
+  const onToggle = () => {
+    dispatch({ type: "TOGGLE", id });
+  };
+
+  const onRemove = () => {
+    dispatch({ type: "REMOVE", id });
+  };
   return (
     <TodoItemBlock>
-      <CheckCircle done={done}>{done && <MdDone />}</CheckCircle>
+      <CheckCircle done={done} onClick={onToggle}>
+        {done && <MdDone />}
+      </CheckCircle>
       <Text done={done}>{text}</Text>
       <Remove>
-        <MdDelete />
+        <MdDelete onClick={onRemove} />
       </Remove>
     </TodoItemBlock>
   );
 }
 
-export default TodoItem;
+export default React.memo(TodoItem);
+// export default TodoItem;
+//기존의 위 문장을 최적화함.
+//기존의 문장은 하나의 TodoItem 바뀌어도 전체 TodoItem 리렌더링 되는데
+//React.memo()를 사용하면, 변화가 된 TodoItem만 리렌더링

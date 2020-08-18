@@ -59,7 +59,6 @@ const CircleButton = styled.button`
 
 //open 이 true가 돼었을 때, form이 나오게 할 건데, 그때의 위치?를 설정해주는 거
 const InsertFormPositioner = styled.div`
-  //styled.form 으로 하면 onSubmit 이벤트를 쓸 수 있음!
   width: 100%;
   bottom: 0;
   left: 0;
@@ -68,6 +67,8 @@ const InsertFormPositioner = styled.div`
 
 //실제 InsertForm
 const InsertForm = styled.form`
+  //styled.form 으로 하면 onSubmit 이벤트를 쓸 수 있음!
+
   background: #f8f9fa; //배경 회색
   padding: 32px;
   padding-bottom: 72px; //아래는 72px으로 설정(∵ 버튼 공간)
